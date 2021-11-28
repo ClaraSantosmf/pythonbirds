@@ -3,7 +3,7 @@ class Pessoa:
                         #Para já criar espaço para atribuir valores, é possível passar o atributo como parâmetro
         self.idade = idade # pode ser passado com atributo de instância já com o valor, que pode ser redistribuido no code ou
         self.nome = nome #colocar a existência de um atributo no vazio None, que deve receber um atributo
-        self.filhos = list()
+        self.filhos = list(filhos)
     def cumprimentar (self): #um método é uma função que pertence a uma class atrelada a um objeto obrigatorialment
         return f'olá {id(self)}' #self é uma convenção, poderia se chamar qualquer coisa
 
@@ -17,4 +17,8 @@ if __name__ == '__main__':
     print(maria.nome) #atributo redefinido
     for filho in ana.filhos:
         print(filho.nome)
+    ana.sobrenome = 'santiago' #Aqui é possível criar um atributo dinâmico que será atribuido apenas ao objeto em que surgiu
+    print(ana.__dict__) #O comando dict é possível para verificar quais atributos foram incluidos na instância do objeto
+    print(maria.__dict__)
+
 
