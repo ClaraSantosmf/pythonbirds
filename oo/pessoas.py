@@ -1,6 +1,7 @@
 class Pessoa:
+    olhos = 2 #valor default, ou atributo de classe. Quando há o mesmo valor é comum.
     def __init__ (self, *filhos, nome=None, idade= 21): #método de inicialização dos atributos de dados, atributos de instância e objeto.
-                        #Para já criar espaço para atribuir valores, é possível passar o atributo como parâmetro
+                            #Para já criar espaço para atribuir valores, é possível passar o atributo como parâmetro
         self.idade = idade # pode ser passado com atributo de instância já com o valor, que pode ser redistribuido no code ou
         self.nome = nome #colocar a existência de um atributo no vazio None, que deve receber um atributo
         self.filhos = list(filhos)
@@ -17,8 +18,12 @@ if __name__ == '__main__':
     print(maria.nome) #atributo redefinido
     for filho in ana.filhos:
         print(filho.nome)
+    ana.olhos = 1 #mudando o atributo de classe para um valor diferente em um atributo de instância
     ana.sobrenome = 'santiago' #Aqui é possível criar um atributo dinâmico que será atribuido apenas ao objeto em que surgiu
     print(ana.__dict__) #O comando dict é possível para verificar quais atributos foram incluidos na instância do objeto
     print(maria.__dict__)
+    print(Pessoa.olhos)
+    print(ana.olhos)
+    print(maria.olhos)
 
 
