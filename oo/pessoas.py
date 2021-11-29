@@ -8,6 +8,14 @@ class Pessoa:
     def cumprimentar (self): #um método é uma função que pertence a uma class atrelada a um objeto obrigatorialment
         return f'olá {id(self)}' #self é uma convenção, poderia se chamar qualquer coisa
 
+    @staticmethod #decorator abre para inserção de métodos de classe ou estáticos a uma função atrelada a classe pessoa
+    def metodo_estatico(): #não há a inserção do self
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls): #cls é uma alusão a classe que está executando o código. E possível utilizar para acessar dados da própria classe
+        return f'{cls} – olhos {cls.olhos}'
+
 if __name__ == '__main__':
     maria = Pessoa(nome= 'Maria') #criamos o objeto vindo da classe Class Pessoa, atribuims parâmetro para nome aqui.
     ana = Pessoa(maria, nome='Ana')
@@ -25,5 +33,7 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(ana.olhos)
     print(maria.olhos)
+    print(Pessoa.nome_e_atributos_de_classe())
+    print(maria.nome_e_atributos_de_classe())
 
 
