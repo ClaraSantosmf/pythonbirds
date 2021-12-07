@@ -192,7 +192,7 @@ class PassaroBaseTests(TestCase):
 
 class PassaroVermelhoTests(PassaroBaseTests):
     """
-    Classe de teste e Passaro Vermelho
+    Classe de teste e Passaro Vermelho. Esperando o V como caractere ativo
     """
 
     def teste_status(self):
