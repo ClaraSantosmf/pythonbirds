@@ -16,8 +16,11 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls): #cls é uma alusão a classe que está executando o código. E possível utilizar para acessar dados da própria classe
         return f'{cls} – olhos {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
+
 if __name__ == '__main__':
-    maria = Pessoa(nome= 'Maria') #criamos o objeto vindo da classe Class Pessoa, atribuims parâmetro para nome aqui.
+    maria = Homem(nome= 'Maria') #criamos o objeto vindo da classe Class Pessoa, atribuims parâmetro para nome aqui.
     ana = Pessoa(maria, nome='Ana')
     print(Pessoa.cumprimentar(maria)) #a passagem do objeto é implicita porque estamos tratando de um método
     print(maria.nome) #pegamos o atributo nome dentro do objeto que recebeu o atributo Maria
@@ -35,5 +38,6 @@ if __name__ == '__main__':
     print(maria.olhos)
     print(Pessoa.nome_e_atributos_de_classe())
     print(maria.nome_e_atributos_de_classe())
-
+    pessoa =Pessoa('Anônimo')
+    print(isinstance (pessoa,Pessoa))
 
