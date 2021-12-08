@@ -6,7 +6,7 @@ class Pessoa:
         self.nome = nome #colocar a existência de um atributo no vazio None, que deve receber um atributo
         self.filhos = list(filhos)
     def cumprimentar (self): #um método é uma função que pertence a uma class atrelada a um objeto obrigatorialment
-        return f'olá {id(self)}' #self é uma convenção, poderia se chamar qualquer coisa
+        return f'olá, meu nome é {(self.nome)}' #self é uma convenção, poderia se chamar qualquer coisa
 
     @staticmethod #decorator abre para inserção de métodos de classe ou estáticos a uma função atrelada a classe pessoa
     def metodo_estatico(): #não há a inserção do self
@@ -17,14 +17,16 @@ class Pessoa:
         return f'{cls} – olhos {cls.olhos}'
 
 class Homem(Pessoa): #Nesse ponto, homem está herdando os métodos da classe pessoa. Quer serve para reutilização de código
-    pass
+    def cumprimentar(self): #sobrescrevendo o método cumprimentar apenas para a classe homem.
+        cumprimentar_da_classe = super().cumprimentar() #o super vai sempre buscar métodos dentro da classe pai, seja ele qual for.
+        return f'f {cumprimentar_da_classe}. Aperto de mão'
 
 class Mutante(Pessoa):
     olhos = 3 #temos sobrescrita de atributo de dados, realizado por meio de atribuir um novo valor a um objeto com mesmo nome
 
 if __name__ == '__main__':
     maria = Mutante(nome= 'Maria') #criamos o objeto vindo da classe Class Pessoa, atribuims parâmetro para nome aqui.
-    ana = Pessoa(maria, nome='Ana')
+    ana = Homem(maria, nome='Ana')
     print(Pessoa.cumprimentar(maria)) #a passagem do objeto é implicita porque estamos tratando de um método
     print(maria.nome) #pegamos o atributo nome dentro do objeto que recebeu o atributo Maria
     print(maria.nome, maria.idade) #Atribuimos nome, mas pegamos idade como parâmetro já posto no init, não precisou declarar
@@ -44,4 +46,6 @@ if __name__ == '__main__':
     pessoa =Pessoa('Anônimo')
     print(isinstance (pessoa,Pessoa)) #verificação se pessoa herda de Pessoa
     print(maria.olhos)
+    print(maria.cumprimentar())
+    print(ana.cumprimentar())
 
