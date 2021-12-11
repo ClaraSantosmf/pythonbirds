@@ -64,8 +64,9 @@ class Porco(Ator):
     _caracter_ativo = '@'
 
 
-class DuploLancamentoExcecao(Exception):
-    pass
+class DuploLancamentoExcecao(Exception): # Para criar um raise, é preciso declarar uma classe que herde exception
+    pass                                # o pass deixa vazio para que possamos usar essa classe posteriormente em raise
+                                        #Raise DuploLancamentoExcecao("Error") Raise cria sua excessão, "DuploLancamentoExcecao" é o nome de sua exceção e por fim existe a mensagem
 
 
 class Passaro(Ator):
