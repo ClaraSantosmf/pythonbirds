@@ -58,7 +58,7 @@ class PassaroFake(AtorFake):
 
     def lancar(self, angulo, tempo):
         if self._lancado:
-            raise DuploLancamentoExcecao()
+            raise DuploLancamentoExcecao("Esse passaro já foi lançado, está tentando lançar a 2ª vez")
         self._lancado = True
 
     def colidir_com_chao(self):
