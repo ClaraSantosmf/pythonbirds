@@ -61,12 +61,12 @@ class Ator():
 
 
 class Obstaculo(Ator):
-    _caracter_ativo = 'O'
+    _caracter_ativo = 'O' #aqui houve uma sobrescrição de objeto herdado da classe ator
 
 
 class Porco(Ator):
     _caracter_ativo = '@'
-
+    _caracter_destruido = '+' #sobescrição de caracter para demonstra-lo como destruído
 
 class DuploLancamentoExcecao(Exception): # Para criar um raise, é preciso declarar uma classe que herde exception
     pass                                # o pass deixa vazio para que possamos usar essa classe posteriormente em raise
@@ -98,7 +98,7 @@ class Passaro(Ator):
 
         :return: booleano
         """
-        return True
+        return not self._tempo_de_lancamento is None #não retorne self._tempo_de_lançamento sendo nenhum. Seria o mesmo de dizer retorne falso se self._tempo_de_lancamento for nenhum.
 
     def colidir_com_chao(self):
         """
@@ -134,7 +134,8 @@ class Passaro(Ator):
         :param tempo_de_lancamento:
         :return:
         """
-        pass
+        self._angulo_de_lancamento = angulo
+        self._tempo_de_lancamento = tempo_de_lancamento
 
 
 class PassaroAmarelo(Passaro):
@@ -143,3 +144,5 @@ class PassaroAmarelo(Passaro):
 
 class PassaroVermelho(Passaro):
     _caracter_ativo = 'V'
+    _caracter_destruido = 'v'
+    velocidade_escalar = 20
